@@ -1,4 +1,7 @@
+import Alarm from '../page/Alarm';
+import Gallery from '../page/Gallery';
 import Home from '../page/Home';
+import Memo from '../page/Memo';
 
 function Router({ $app, initialState, onClick }) {
     this.state = initialState;
@@ -11,6 +14,12 @@ function Router({ $app, initialState, onClick }) {
         onClick,
     });
 
+    const alarm = new Alarm({ $main: this.$target, initialState: this.state });
+
+    const memo = new Memo({ $main: this.$target, initialState: this.state });
+
+    const gallery = new Gallery({ $main: this.$target, initialState: this.state });
+
     this.setState = (newState) => {
         this.state = newState;
         this.render();
@@ -21,13 +30,15 @@ function Router({ $app, initialState, onClick }) {
         this.$target.innerHTML = '';
         switch (page) {
             case 'alarm':
+                alarm.setState(this.state);
                 break;
             case 'memo':
+                memo.setState(this.state);
                 break;
             case 'gallery':
+                gallery.setState(this.state);
                 break;
             default:
-                console.log('router');
                 home.setState(this.state);
                 break;
         }
