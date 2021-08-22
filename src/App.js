@@ -3,12 +3,14 @@ import Router from './router';
 import { convertStringToAlarmformat } from './utils/DateUtils';
 
 function App($app) {
-    this.state = {
-        page: 'home',
-        time: new Date(),
-        apps: ['alarm', 'memo', 'gallery'],
-        alarms: [],
-    };
+    this.state = localStorage.getItem('smartphoneInfo')
+        ? JSON.parse(localStorage.getItem('smartphoneInfo'))
+        : {
+              page: 'home',
+              time: new Date(),
+              apps: ['alarm', 'memo', 'gallery'],
+              alarms: [],
+          };
 
     const { page, time } = this.state;
     const header = new Header({
@@ -90,6 +92,7 @@ function App($app) {
 
     this.setState = (nextState) => {
         this.state = nextState;
+        localStorage.setItem('smartphoneInfo', JSON.stringify(this.state));
         this.render();
     };
 
