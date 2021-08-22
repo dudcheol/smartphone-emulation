@@ -1,6 +1,8 @@
-function AlarmList({ $main, initialState, onClick }) {
+import { convertStringToAlarmformat } from '../utils/DateUtils';
+
+function AlarmList({ $target, initialState, onRemove }) {
     this.state = initialState;
-    this.$target = null;
+    this.$AlarmList = null;
 
     this.setState = (nextState) => {
         this.state = nextState;
@@ -8,18 +10,22 @@ function AlarmList({ $main, initialState, onClick }) {
     };
 
     this.render = () => {
-        this.$target = document.createElement('ul');
+        this.$AlarmList = document.createElement('ul');
         const { alarms } = this.state;
-        alarms.forEach((alarm) => {
+        alarms.forEach(({ id, date }) => {
             const $li = document.createElement('li');
             const $span = document.createElement('span');
             const $delBtn = document.createElement('button');
-            $span.innerHTML = alarm;
+            $span.innerHTML = convertStringToAlarmformat(date);
             $delBtn.innerText = '삭제';
+            $delBtn.addEventListener('click', () => {
+                onRemove({ id, date });
+            });
             $li.appendChild($span);
             $li.appendChild($delBtn);
-            this.$target.appendChild($li);
+            this.$AlarmList.appendChild($li);
         });
+        $target.appendChild(this.$AlarmList);
     };
 }
 

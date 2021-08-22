@@ -3,7 +3,7 @@ import Gallery from '../page/Gallery';
 import Home from '../page/Home';
 import Memo from '../page/Memo';
 
-function Router({ $app, initialState, onClick }) {
+function Router({ $app, initialState, onClick, onAlarmChange }) {
     this.state = initialState;
     this.$target = document.createElement('main');
     $app.appendChild(this.$target);
@@ -14,7 +14,13 @@ function Router({ $app, initialState, onClick }) {
         onClick,
     });
 
-    const alarm = new Alarm({ $main: this.$target, initialState: this.state });
+    const alarm = new Alarm({
+        $main: this.$target,
+        initialState: this.state,
+        onAlarmChange: (alarm) => {
+            onAlarmChange(alarm);
+        },
+    });
 
     const memo = new Memo({ $main: this.$target, initialState: this.state });
 
