@@ -1,3 +1,5 @@
+import AlarmList from '../components/AlarmList';
+
 function Alarm({ $main, initialState, onClick }) {
     this.state = initialState;
     this.$target = null;
@@ -9,7 +11,9 @@ function Alarm({ $main, initialState, onClick }) {
 
     this.render = () => {
         this.$target = document.createElement('section');
-        this.$target.innerHTML = `<div>Alarm</div>`;
+        const alarmList = new AlarmList({ $main: this.$target, initialState, onClick });
+        alarmList.setState(this.state);
+
         $main.appendChild(this.$target);
     };
 }

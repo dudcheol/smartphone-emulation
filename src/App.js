@@ -6,6 +6,7 @@ function App($app) {
         page: 'home',
         time: new Date(),
         apps: ['alarm', 'memo', 'gallery'],
+        alarms: [],
     };
 
     const { page, time } = this.state;
