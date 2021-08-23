@@ -13,13 +13,16 @@ function Alarm({ $main, initialState, onAlarmChange }) {
     this.render = () => {
         $main.innerHTML = '';
         this.$Alarm = document.createElement('section');
-        const alarmInput = new Input({
-            $target: this.$Alarm,
-            initialState: this.state,
-            onClick: (alarm) => {
-                onAlarmChange({ type: 'add', alarm });
-            },
-        });
+        if (this.state.isInputShowing) {
+            const alarmInput = new Input({
+                $target: this.$Alarm,
+                initialState: this.state,
+                onClick: (alarm) => {
+                    onAlarmChange({ type: 'add', alarm });
+                },
+            });
+            alarmInput.setState({ ...this.state, type: 'time' });
+        }
         const alarmList = new AlarmList({
             $target: this.$Alarm,
             initialState: this.state,
@@ -27,7 +30,6 @@ function Alarm({ $main, initialState, onAlarmChange }) {
                 onAlarmChange({ type: 'remove', alarm });
             },
         });
-        alarmInput.setState({ ...this.state, type: 'time' });
         alarmList.setState(this.state);
 
         $main.appendChild(this.$Alarm);
