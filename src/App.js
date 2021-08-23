@@ -67,6 +67,9 @@ function App($app) {
                     break;
             }
         },
+        onAppsChange: (apps) => {
+            this.setState({ ...this.state, apps });
+        },
     });
 
     const goHome = () => {

@@ -1,6 +1,6 @@
 import HomeList from '../components/HomeList';
 
-function Home({ $main, initialState, onClick }) {
+function Home({ $main, initialState, onClick, onAppsChange }) {
     this.state = initialState;
     this.$target = null;
 
@@ -17,6 +17,7 @@ function Home({ $main, initialState, onClick }) {
             $main: this.$target,
             initialState: this.state,
             onClick,
+            onAppsChange,
         });
 
         homeList.setState({ ...this.state });
