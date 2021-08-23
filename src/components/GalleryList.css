@@ -1,0 +1,31 @@
+.GalleryList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: auto;
+    list-style: none;
+    align-items: center;
+    padding: 12px;
+}
+
+.GalleryList li {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.GalleryList img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.GalleryList .selected img {
+    border: 4px solid orange;
+    /* box-shadow: 0 0 0 3px #000 inset; */
+}
+
+.Gallery {
+    overflow: hidden;
+}

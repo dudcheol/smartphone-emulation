@@ -1,0 +1,13 @@
+.GalleryImageViewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background: black;
+    width: 100%;
+}
+
+.GalleryImageViewer img {
+    object-fit: cover;
+    width: 100%;
+}
