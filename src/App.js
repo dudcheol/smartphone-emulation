@@ -45,6 +45,7 @@ function App($app) {
                     this.setState({
                         ...this.state,
                         alarms: [...this.state.alarms, alarm],
+                        isInputShowing: false,
                     });
                     break;
                 case 'remove':
