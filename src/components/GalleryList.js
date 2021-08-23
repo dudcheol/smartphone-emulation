@@ -22,8 +22,6 @@ function GalleryList({ $target, initialState, onClick }) {
             )
             .join('');
 
-        console.log(this.$GalleryList.childNodes);
-
         this.$GalleryList.childNodes.forEach(($li) => {
             $li.addEventListener('click', (e) => {
                 this.$GalleryList.childNodes.forEach((_$li) => _$li.classList.remove('selected'));
