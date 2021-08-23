@@ -17,10 +17,10 @@ function MemoList({ $target, initialState }) {
             const $li = document.createElement('li');
             $li.innerHTML = content;
             $li.addEventListener('click', (e) => {
-                e.target.parentNode.childNodes.forEach((li) => {
+                e.currentTarget.parentNode.childNodes.forEach((li) => {
                     li.classList.remove('selected');
                 });
-                e.target.classList.add('selected');
+                e.currentTarget.classList.add('selected');
             });
             this.$MemoList.appendChild($li);
         });
