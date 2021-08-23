@@ -40,28 +40,42 @@ function Input({ $target, initialState, onClick }) {
                         <option value="50">50</option>
                     </select>분
                 `;
+                const $submitBtn = document.createElement('input');
+                $submitBtn.value = '저장';
+                $submitBtn.type = 'submit';
+                this.$Form.appendChild($submitBtn);
                 break;
             case 'text':
+                this.$Form.innerHTML = `
+                    <input type="text" name="content" placeholder="메모를 입력하세요"></input>
+                `;
                 break;
             default:
                 break;
         }
-        const $submitBtn = document.createElement('input');
-        $submitBtn.value = '저장';
-        $submitBtn.type = 'submit';
         this.$Form.onsubmit = (e) => {
             e.preventDefault();
-            const hour =
-                e.target.day.value === '오전'
-                    ? Number(e.target.hour.value)
-                    : Number(e.target.hour.value) + 12;
-            const minute = e.target.minute.value;
-            const date = new Date();
-            date.setHours(hour);
-            date.setMinutes(minute);
-            onClick({ id: Date.now() + Math.floor(Math.random() * 10000), date });
+            switch (type) {
+                case 'time':
+                    const hour =
+                        e.target.day.value === '오전'
+                            ? Number(e.target.hour.value)
+                            : Number(e.target.hour.value) + 12;
+                    const minute = e.target.minute.value;
+                    const date = new Date();
+                    date.setHours(hour);
+                    date.setMinutes(minute);
+                    onClick({ id: Date.now() + Math.floor(Math.random() * 10000), date });
+                    break;
+                case 'text':
+                    const content = e.target.content.value;
+                    onClick({ id: Date.now() + Math.floor(Math.random() * 10000), content });
+                    e.target.content.value = '';
+                    break;
+                default:
+                    break;
+            }
         };
-        this.$Form.appendChild($submitBtn);
         $target.appendChild(this.$Form);
     };
 }

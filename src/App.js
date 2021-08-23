@@ -9,7 +9,9 @@ function App($app) {
               page: 'home',
               time: new Date(),
               apps: ['alarm', 'memo', 'gallery'],
+              isInputShowing: false,
               alarms: [],
+              memos: [],
           };
 
     const { page, time } = this.state;
@@ -42,6 +44,17 @@ function App($app) {
                     this.setState({
                         ...this.state,
                         alarms: this.state.alarms.filter((e) => e.id !== alarm.id),
+                    });
+                    break;
+            }
+        },
+        onMemoChange: ({ type, memo }) => {
+            switch (type) {
+                case 'add':
+                    this.setState({
+                        ...this.state,
+                        memos: [...this.state.memos, memo],
+                        isInputShowing: false,
                     });
                     break;
             }
