@@ -106,6 +106,7 @@ function App($app) {
         this.setState({
             ...this.state,
             page: page,
+            isInputShowing: false,
         });
     };
 
