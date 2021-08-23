@@ -28,4 +28,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
     },
+    performance: {
+        maxAssetSize: 500000, // 이미지 사이즈 244kb를 넘어서 뜨는 경고 제거. 500kb로 늘림
+    },
 };
