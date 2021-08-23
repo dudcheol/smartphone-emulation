@@ -12,6 +12,7 @@ function App($app) {
               isInputShowing: false,
               alarms: [],
               memos: [],
+              images: [],
           };
 
     const { page, time } = this.state;
