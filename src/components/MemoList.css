@@ -7,11 +7,12 @@
     cursor: pointer;
     word-break: break-all;
     max-height: 40px;
-    line-height: 20px;
+    line-height: 21px;
     overflow: hidden;
     border-top: 1px solid blue;
     border-bottom: 1px solid blue;
     background: white;
+    padding: 4px;
 }
 
 .MemoList .selected {

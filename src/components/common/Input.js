@@ -16,32 +16,34 @@ function Input({ $target, initialState, onClick }) {
         switch (type) {
             case 'time':
                 this.$Form.innerHTML = `
-                    <select name="day">
-                        <option value="오전">오전</option>
-                        <option value="오후">오후</option>
-                    </select>
-                    <select name="hour">
-                        <option value="0">00</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                    </select>시
-                    <select name="minute">
-                        <option value="0">00</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                    </select>분
+                    <div>
+                        <select name="day">
+                            <option value="오전">오전</option>
+                            <option value="오후">오후</option>
+                        </select>
+                        <select name="hour">
+                            <option value="0">00</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>시
+                        <select name="minute">
+                            <option value="0">00</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>분
+                    </div>
                 `;
                 const $submitBtn = document.createElement('input');
                 $submitBtn.value = '저장';
