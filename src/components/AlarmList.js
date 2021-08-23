@@ -1,4 +1,5 @@
 import { convertStringToAlarmformat } from '../utils/DateUtils';
+import './AlarmList.css';
 
 function AlarmList({ $target, initialState, onRemove }) {
     this.state = initialState;
@@ -11,6 +12,7 @@ function AlarmList({ $target, initialState, onRemove }) {
 
     this.render = () => {
         this.$AlarmList = document.createElement('ul');
+        this.$AlarmList.className = 'AlarmList';
         const { alarms } = this.state;
         alarms.forEach(({ id, date }) => {
             const $li = document.createElement('li');

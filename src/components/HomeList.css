@@ -1,0 +1,19 @@
+.HomeList {
+    padding: 12px;
+}
+
+.HomeList li {
+    float: left;
+    margin: 8px;
+}
+
+.HomeList li button {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    cursor: pointer;
+}

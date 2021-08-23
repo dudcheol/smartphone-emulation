@@ -1,3 +1,5 @@
+import './HomeList.css';
+
 function HomeList({ $main, initialState, onClick }) {
     this.state = initialState;
     this.$target = null;
@@ -8,8 +10,8 @@ function HomeList({ $main, initialState, onClick }) {
     };
 
     this.render = () => {
-        console.log('homeList');
         this.$target = document.createElement('ul');
+        this.$target.className = 'HomeList';
         this.state.apps.forEach((app) => {
             const $li = document.createElement('li');
             const $button = document.createElement('button');

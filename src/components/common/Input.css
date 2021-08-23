@@ -1,0 +1,14 @@
+.Input {
+    background: white;
+    padding: 4px;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
+
+.Input input {
+    background: white;
+    border: 1px solid skyblue;
+    color: skyblue;
+    border-radius: 4px;
+    cursor: pointer;
+}

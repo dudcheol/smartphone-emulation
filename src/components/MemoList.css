@@ -9,10 +9,11 @@
     max-height: 40px;
     line-height: 20px;
     overflow: hidden;
-    border: 1px solid blue;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    background: white;
 }
 
 .MemoList .selected {
     max-height: 100%;
-    background: lightblue;
 }

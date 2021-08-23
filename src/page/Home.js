@@ -10,7 +10,6 @@ function Home({ $main, initialState, onClick }) {
     };
 
     this.render = () => {
-        console.log('home');
         this.$target = document.createElement('section');
         $main.appendChild(this.$target);
 

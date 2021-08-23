@@ -1,3 +1,5 @@
+import './Input.css';
+
 function Input({ $target, initialState, onClick }) {
     this.state = initialState;
     this.$Input = null;
@@ -10,6 +12,7 @@ function Input({ $target, initialState, onClick }) {
     this.render = () => {
         const { type } = this.state;
         this.$Form = document.createElement('form');
+        this.$Form.className = 'Input';
         switch (type) {
             case 'time':
                 this.$Form.innerHTML = `

@@ -1,16 +1,20 @@
+import './Header.css';
 import { convertStringToDateformat } from '../../utils/DateUtils';
 
 function Header({ $app, initialState, onClick }) {
     this.state = initialState;
     this.$target = document.createElement('header');
+    this.$target.className = 'Header';
 
     const $leftBtn = document.createElement('button');
     const $dateTime = document.createElement('span');
     const $rightBtn = document.createElement('button');
+    $leftBtn.className = 'back';
     $leftBtn.innerText = 'BACK';
     $leftBtn.addEventListener('click', () => {
         onClick({ type: 'back' });
     });
+    $rightBtn.className = 'new';
     $rightBtn.innerText = 'NEW';
     $rightBtn.addEventListener('click', () => {
         onClick({ type: 'new' });

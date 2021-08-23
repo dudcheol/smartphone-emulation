@@ -13,6 +13,7 @@ function Gallery({ $main, initialState, onClick }) {
     this.render = () => {
         $main.innerHTML = '';
         this.$target = document.createElement('section');
+        this.$target.className = 'Gallery';
         const galleryImageViewer = new GalleryImageViewer({
             $target: this.$target,
             initialState: this.state,
