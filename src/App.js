@@ -12,6 +12,7 @@ function App($app) {
               isInputShowing: false,
               alarms: [],
               memos: [],
+              isInputShowing: false,
           };
 
     const { page, time } = this.state;
@@ -24,7 +25,10 @@ function App($app) {
                     this.route({ page: 'home' });
                     break;
                 case 'new':
-                    console.log('header click - new');
+                    this.setState({
+                        ...this.state,
+                        isInputShowing: !this.state.isInputShowing,
+                    });
                     break;
             }
         },
@@ -38,7 +42,10 @@ function App($app) {
         onAlarmChange: ({ type, alarm }) => {
             switch (type) {
                 case 'add':
-                    this.setState({ ...this.state, alarms: [...this.state.alarms, alarm] });
+                    this.setState({
+                        ...this.state,
+                        alarms: [...this.state.alarms, alarm],
+                    });
                     break;
                 case 'remove':
                     this.setState({
@@ -85,13 +92,25 @@ function App($app) {
     };
 
     const init = () => {
+        this.state = {
+            ...this.state,
+            time: new Date(),
+            alarms: this.state.alarms.map(({ id, date }) => ({
+                id,
+                date: new Date(date),
+            })),
+        };
         setInterval(() => {
             this.state = {
                 ...this.state,
                 time: new Date(),
             };
             checkAlarm(this.state.time);
-            header.setState({ page: this.state.page, time: this.state.time, onClick: goHome });
+            header.setState({
+                page: this.state.page,
+                time: this.state.time,
+                onClick: goHome,
+            });
         }, 1000);
         this.render();
     };
@@ -100,6 +119,7 @@ function App($app) {
         this.setState({
             ...this.state,
             page: page,
+            isInputShowing: false,
         });
     };
 
